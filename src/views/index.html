@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MikaelKorpela">
+<head>
+    <meta charset="utf-8">
+    <title><!-- @echo NAME --></title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <!-- @if ENV='prod' -->
+    <link href="assets/css/app.min.css?v=<!-- @echo CACHEBUSTER -->" rel="stylesheet">
+    <!-- @endif -->
+    <!-- @if ENV='dev' -->
+    <link href="assets/css/app.css?v=<!-- @echo CACHEBUSTER -->" rel="stylesheet">
+    <!-- @endif -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Noto+Serif:400&text=MIKAELKORPELAModernnomad,anactivistandafriend.' rel='stylesheet' type='text/css'>
+    <meta name="fragment" content="!">
+    <meta name="format-detection" content="telephone=no">
+	<meta name="description" content="<!-- @echo DESCRIPTION -->">
+    <meta name="author" content="<!-- @echo AUTHOR -->">
+	<meta property="og:title" content="<!-- @echo NAME -->">
+	<meta property="og:site_name" content="<!-- @echo AUTHOR -->">
+	<meta property="og:description" content="<!-- @echo DESCRIPTION -->">
+	<meta property="og:url" content="<!-- @echo HOMEPAGE -->">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="<!-- @echo OG_IMG -->">
+    <!-- @include ga.html -->
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1><!-- @echo NAME --></h1>
+            <hr>
+            <h3>Modern nomad, an activist and a friend.</h3>
+            <a class="masterTooltip" title="GitHub" href="https://github.com/simison"><i class="fa fa-fw fa-lg fa-github-square"></i></a>
+            <a class="masterTooltip" title="Facebook" href="http://fb.com/mikael.korpela"><i class="fa fa-fw fa-lg fa-facebook-square"></i></a>
+            <a class="masterTooltip" title="Twitter" href="https://twitter.com/simison"><i class="fa fa-fw fa-lg fa-twitter-square"></i></a>
+            <a class="masterTooltip" title="LinkedIn" href="https://www.linkedin.com/in/mikaelkorpela"><i class="fa fa-fw fa-lg fa-linkedin-square"></i></a>
+            <br><br>
+            <!-- @include email.html -->
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.masterTooltip').hover(function(){
+                // Hover over code
+                var title = $(this).attr('title');
+                $(this).data('tipText', title).removeAttr('title');
+                $('<p class="tooltip"></p>')
+                .text(title)
+                .appendTo('body')
+                .fadeIn('slow');
+        }, function() {
+                // Hover out code
+                $(this).attr('title', $(this).data('tipText'));
+                $('.tooltip').remove();
+        }).mousemove(function(e) {
+                var mousex = e.pageX + 20; //Get X coordinates
+                var mousey = e.pageY + 10; //Get Y coordinates
+                $('.tooltip')
+                .css({ top: mousey, left: mousex })
+        });
+    });
+    </script>
+    <!--
+    <!-- @if ENV='prod' -->
+    <script src="assets/js/app.min.js?v=<!-- @echo CACHEBUSTER -->"></script>
+    <!-- @endif -->
+    <!-- @if ENV='dev' -->
+    <script src="assets/js/app.js?v=<!-- @echo CACHEBUSTER -->"></script>
+    <!-- @endif -->
+    -->
+</body>
+</html>

@@ -1,0 +1,47 @@
+{
+  "name": "Mikael Korpela",
+  "version": "1.0.0",
+  "description": "Modern nomad, an activist and a friend.",
+  "homepage": "http://www.mikaelkorpela.fi/",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "~0.4.2"
+  },
+  "devDependencies": {
+    "bower": "~1.2.8",
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.3.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-less": "~0.9.0",
+    "grunt-preprocess": "~4.0.0",
+    "grunt-contrib-copy": "~0.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simison/mikaelkorpela.fi"
+  },
+  "keywords": [
+    "hitchhiking",
+    "traveling",
+    "homepage",
+    "portfolio",
+    "cv"
+  ],
+  "author": "Mikael Korpela",
+  "contributors": [
+    {
+      "name": "Mikael",
+      "email": "mikael@ihminen.org",
+      "url": "http://www.mikaelkorpela.fi/"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simison/mikaelkorpela.fi/issues"
+  }
+}
