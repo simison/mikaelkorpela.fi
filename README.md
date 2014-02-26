@@ -8,6 +8,7 @@ Just my humble little website.
 - [MIT](LICENSE)
 - Use code however you wish :-)
 - Texts and images copyright me. Don't use them.
+- Photos taken by Simona. Don't use them either.
 
 
 
