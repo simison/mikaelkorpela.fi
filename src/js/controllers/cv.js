@@ -1,8 +1,6 @@
 /**
  * Controller for cv
  */
-MikaelKorpela.controller('cvCtrl', function($scope) {
-
-    // ...
-
+mikael.controller('cvCtrl', function($scope) {
+    $scope.tooltips();
 });

@@ -1,8 +1,6 @@
 /**
  * Controller for me
  */
-MikaelKorpela.controller('meCtrl', function($scope) {
-
-    // ...
-
+mikael.controller('meCtrl', function($scope) {
+    $scope.tooltips();
 });

@@ -1,0 +1,66 @@
+.transition(@transition) {
+    -webkit-transition: @transition;
+       -moz-transition: @transition;
+        -ms-transition: @transition;
+         -o-transition: @transition;
+            transition: @transition;
+}
+.filter(@filter) {
+    -webkit-filter: @filter;
+       -moz-filter: @filter;
+        -ms-filter: @filter;
+         -o-filter: @filter;
+            filter: @filter;
+}
+.transform(@transform) {
+    -webkit-transform: @transform;
+       -moz-transform: @transform;
+        -ms-transform: @transform;
+         -o-transform: @transform;
+            transform: @transform;
+}
+.transform-origin(@transform) {
+    -webkit-transform-origin: @transform;
+       -moz-transform-origin: @transform;
+        -ms-transform-origin: @transform;
+         -o-transform-origin: @transform;
+            transform-origin: @transform;
+}
+
+// User select
+// For selecting text on the page
+.user-select(@select) {
+    -webkit-user-select: @select;
+       -moz-user-select: @select;
+        -ms-user-select: @select; // IE10+
+            user-select: @select;
+}
+
+// Shadow
+.box-shadow(@shadow) {
+    -webkit-box-shadow: @shadow;
+       -moz-box-shadow: @shadow;
+            box-shadow: @shadow;
+}
+
+
+// Clearfix
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+.clearfix() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+    &:after {
+        clear: both;
+    }
+}

@@ -2,43 +2,78 @@ module.exports = function(grunt) {
 
   var // HTML templates
       templates = {
-          'build/index.html':               'src/views/index.html',
-          'build/partials/home.html':       'src/views/partials/home.html',
-          'build/partials/me.html':         'src/views/partials/me.html',
-          'build/partials/cv.html':         'src/views/partials/cv.html',
-          'build/partials/portfolio.html':  'src/views/partials/portfolio.html',
+          'build/index.html':                   'src/views/index.html',
+          'build/partials/me.html':             'src/views/partials/me.html',
+          'build/partials/cv.html':             'src/views/partials/cv.html',
+          'build/partials/blog.html':           'src/views/partials/blog.html',
+          'build/partials/portfolio.html':      'src/views/partials/portfolio.html',
+          'build/partials/portfolio-card.html': 'src/views/partials/portfolio-card.html',
+          'build/partials/volunteering.html':   'src/views/partials/volunteering.html',
       };
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     templates: templates,
     watch: {
-      files: [
-        'src/less/*',
-        'src/js/*',
-        'src/js/controllers/*',
-        'src/views/*',
-        'src/views/partials/*',
-        'GruntFile.js',
-      ],
-      tasks: [
-        'preprocess:dev',
-        'less:dev',
-        'concat',
-      ]
+      js: {
+        files: [
+          'src/js/*',
+          'src/js/controllers/*',
+          'src/js/directives/*',
+          'Gruntfile.js',
+        ],
+        tasks: [
+          'concat'
+          //'uglify'
+        ]
+      },
+      less: {
+        files: [
+          'src/less/*'
+        ],
+        tasks: [
+          'less:dev'
+        ]
+      },
+      html: {
+        files: [
+          'src/views/*',
+          'src/views/partials/*',
+        ],
+        tasks: [
+          'preprocess:dev'
+        ]
+      },
+      files: {
+        files: [
+          'src/img/*',
+          'src/portfolio/*',
+          'src/audio/*',
+          'src/font/*',
+          'src/favicon.ico',
+          'src/.htaccess',
+          'src/robots.txt',
+        ],
+        tasks: [
+          'copy'
+        ]
+      }
     },
     preprocess : {
       options: {
         context : {
-          NAME: '<%= pkg.name %>',
+          NAME: 'Mikael Korpela',
           AUTHOR: '<%= pkg.author %>',
           VERSION: '<%= pkg.version %>',
           CACHEBUSTER: '<%= grunt.template.today("mdhMs") %>',
           DESCRIPTION: '<%= pkg.description %>',
-          OG_IMG: 'assets/img/mikael_korpela_avatar.jpg',
+          OG_IMG: 'assets/img/mikael-korpela-avatar.jpg',
           HOMEPAGE: '<%= pkg.homepage %>',
           GIT: '<%= pkg.repository.url %>',
           BUGS: '<%= pkg.bugs.url %>',
+          FB_APP_ID: '105522896143570',
+          FB_ADMINS: '600923739',
+          LANG: 'en',
         }
       },
       prod : {
@@ -83,12 +118,16 @@ module.exports = function(grunt) {
           'src/vendor/jquery/jquery.js',
           'src/vendor/angular/angular.js',
           'src/vendor/angular-animate/angular-animate.js',
+          'src/vendor/angular-sanitize/angular-sanitize.js',
           'src/vendor/angular-route/angular-route.js',
+          'src/vendor/angular-deckgrid/angular-deckgrid.js',
+          'src/vendor/flexslider/jquery.flexslider.js',
+          'src/vendor/angular-flexslider/angular-flexslider.js',
+          'src/vendor/angular-ui-utils/modules/keypress/keypress.js',
           'src/js/app.js',
           'src/js/configs.js',
-          'src/js/controllers/me.js',
-          'src/js/controllers/cv.js',
-          'src/js/controllers/portfolio.js',
+          'src/js/controllers/*',
+          'src/js/directives/*',
         ],
         dest: 'build/assets/js/app.js'
       }
@@ -107,12 +146,32 @@ module.exports = function(grunt) {
       main: {
         files: [
             {
-                src: 'src/img/mikael_korpela_avatar.jpg',
-                dest: 'build/assets/img/mikael_korpela_avatar.jpg'
+                expand: true,
+                flatten: true,
+                src: ['src/portfolio/*'],
+                dest: 'build/assets/portfolio/',
+                filter: 'isFile'
             },
             {
-                src: 'src/img/albanian-mountains.jpg',
-                dest: 'build/assets/img/albanian-mountains.jpg'
+                expand: true,
+                flatten: true,
+                src: ['src/font/*'],
+                dest: 'build/assets/font/',
+                filter: 'isFile'
+            },
+            {
+                expand: true,
+                flatten: true,
+                src: ['src/audio/*'],
+                dest: 'build/assets/audio/',
+                filter: 'isFile'
+            },
+            {
+                expand: true,
+                flatten: true,
+                src: ['src/img/*'],
+                dest: 'build/assets/img/',
+                filter: 'isFile'
             },
             {
                 src: 'src/.htaccess',
@@ -130,23 +189,74 @@ module.exports = function(grunt) {
         ]
       },
     },
-
-
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {
+          'build/index.html':                 'build/index.html',
+          'build/partials/me.html':           'build/partials/me.html',
+          'build/partials/cv.html':           'build/partials/cv.html',
+          'build/partials/blog.html':         'build/partials/blog.html',
+          'build/partials/portfolio.html':    'build/partials/portfolio.html',
+          'build/partials/volunteering.html': 'build/partials/volunteering.html',
+        }
+      }
+    },
+    fontello: {
+      dist: {
+        options: {
+            config  : 'src/fontello-config.json',
+            zip     : 'src/vendor/',
+            fonts   : 'build/assets/font',
+            styles  : 'src/vendor/fontello-css/',
+            scss    : false,
+            force   : true
+        }
+      }
+    },
+    htmlSnapshot: {
+      all: {
+        options: {
+          snapshotPath: 'build/snapshots/',
+          sitePath: 'http://dev.mikaelkorpela.fi/',//<%= pkg.homepage %>
+          fileNamePrefix: '_',
+          msWaitForPages: 1000,
+          sanitize: function(requestUri) {
+            return requestUri.replace(/\//g, '').replace(/#!\//g, '');
+          },
+          urls: [
+            '/',
+            '/blog',
+            '/cv',
+            '/portfolio',
+            '/volunteering',
+          ]
+        }
+      }
+    },
   });
 
+  grunt.loadNpmTasks('grunt-html-snapshot');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-preprocess');
+  grunt.loadNpmTasks('grunt-fontello');
 
 
   grunt.registerTask('prod', [
                        'preprocess:prod',
                        'less:prod',
                        'concat',
-                       'uglify'
+                       'uglify',
+                       'htmlmin',
+                       'htmlSnapshot'
                      ]);
 
   grunt.registerTask('dev', [
@@ -157,11 +267,14 @@ module.exports = function(grunt) {
                      ]);
 
   grunt.registerTask('build', [
+                       'fontello',
                        'preprocess:prod',
                        'less:prod',
                        'concat',
                        'uglify',
-                       'copy'
+                       'copy',
+                       'htmlmin',
+                       'htmlSnapshot'
                      ]);
 
     // Default task
