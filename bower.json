@@ -11,7 +11,9 @@
     "angular-deckgrid": "~0.4.4",
     "angular-flexslider": "latest",
     "angular-ui-utils": "#master",
-    "flexslider": "latest"
+    "angular-scroll": "latest",
+    "flexslider": "latest",
+    "html5shiv": "latest"
   },
   "devDependencies": {},
   "ignore": [

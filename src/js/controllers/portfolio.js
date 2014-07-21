@@ -86,24 +86,11 @@ mikael.controller('portfolioCtrl', function($scope, $document) {
             'caption': 'Wordpress',
             'story': 'Wordpress implementation for the finnish beer Karhu in 2012 and 2013. Sinebrychoff is the biggest brewery in Finland.',
             'cover': "karhu_thumb.jpg",
-            'year': '2012, 2013',
+            'year': '2012—2013',
             'url': 'http://www.karhu.fi/',
             'url_label': 'Karhu.fi',
             'cover_2x': "karhu_thumb@2x.jpg",
             'images': ['karhu_2013.png','karhu_2012.jpg','karhu_tuplahumala_2013.jpg']
-        },
-        {
-            'title': '358',
-            'tags': ['Code'],
-            'employer': 'Byroo',
-            'caption': 'Parallax',
-            'story': 'Early years of parallax boom and a website for an advertising agency.',
-            'year': '2012',
-            'url': 'http://www.358.fi/',
-            'url_label': '358.fi',
-            'cover': "358_thumb.jpg",
-            'cover_2x': "358_thumb@2x.jpg",
-            'images': ['358_parallax0.jpg','358_parallax1.jpg','358_parallax2.jpg']
         },
         {
             'title': 'Reissumies',
@@ -132,13 +119,26 @@ mikael.controller('portfolioCtrl', function($scope, $document) {
             'images': ['mainio_front.jpg','mainio_content.jpg']
         },
         {
+            'title': '358',
+            'tags': ['Code'],
+            'employer': 'Byroo',
+            'caption': 'Parallax',
+            'story': 'Early years of parallax boom and a website for an advertising agency.',
+            'year': '2012',
+            'url': 'http://www.358.fi/',
+            'url_label': '358.fi',
+            'cover': "358_thumb.jpg",
+            'cover_2x': "358_thumb@2x.jpg",
+            'images': ['358_parallax0.jpg','358_parallax1.jpg','358_parallax2.jpg']
+        },
+        {
             'title': 'Hitchwiki',
             'tags': ['Design', 'Code','Community'],
             'story': 'Hitchwiki is an open source project and a community gathering over 100 000 visitors a month. It is the ',
             'cover': "hitchwiki_thumb.jpg",
             'cover_2x': "hitchwiki_thumb@2x.jpg",
             'images': ['hitchwiki_phrasebook.png','hitchwiki_maps_v1.jpg','hitchwiki_front_2012.jpg', 'hitchwiki_wiki_2013.jpg'],
-            'year': '2008-',
+            'year': '2008—',
             'urls': [
                 {
                     'url': 'http://hitchwiki.org',
@@ -180,23 +180,9 @@ mikael.controller('portfolioCtrl', function($scope, $document) {
             'open_url_directly': true
         },
         {
-            'title': 'SunSauna',
-            'tags': ['Design'],
-            'employer': 'Into-Digital',
-            'caption': 'Winner of Grand One 2010 in "best Infodesign".',
-            'story': 'Winner of <a href="http://grandone.fi/">Grand One 2010</a> in "best Infodesign". My role as an AD was to wrap rather large amount of contents into easy to access, beautiful and clear package.<br><a href="http://vierityspalkki.fi/2011/08/12/webbisivustotuotanto-voi-olla-kannattavaa-case-into-digital/">Read more from Vierityspalkki.fi</a>',
-            'cover': "sunsauna_thumb.jpg",
-            'url': 'http://www.sunsauna.fi',
-            'url_label': 'sunsauna.fi',
-            'year': '2009',
-            'cover_2x': "sunsauna_thumb@2x.jpg",
-            'images': ['sunsauna_etusivu.png','sunsauna_sisasivu.png']
-        },
-        {
             'title': 'Own works',
             'tags': ['Design', 'Code'],
             'story': '',
-            'year': '2000-',
             'cover': "ihminen_thumb.jpg",
             'cover_2x': "ihminen_thumb@2x.jpg",
             'images': [
@@ -219,12 +205,37 @@ mikael.controller('portfolioCtrl', function($scope, $document) {
             ]
         },
         {
+            'title': 'SunSauna',
+            'tags': ['Design'],
+            'employer': 'Into-Digital',
+            'caption': 'Winner of Grand One 2010 in "best Infodesign".',
+            'story': 'Winner of <a href="http://grandone.fi/">Grand One 2010</a> in "best Infodesign". My role as an AD was to wrap rather large amount of contents into easy to access, beautiful and clear package.<br><a href="http://vierityspalkki.fi/2011/08/12/webbisivustotuotanto-voi-olla-kannattavaa-case-into-digital/">Read more from Vierityspalkki.fi</a>',
+            'cover': "sunsauna_thumb.jpg",
+            'url': 'http://www.sunsauna.fi',
+            'url_label': 'sunsauna.fi',
+            'year': '2009',
+            'cover_2x': "sunsauna_thumb@2x.jpg",
+            'images': ['sunsauna_etusivu.png','sunsauna_sisasivu.png']
+        },
+        {
+            'title': 'Vivago',
+            'tags': ['Code'],
+            'employer': 'Crasman',
+            'year': '2011',
+            'story': 'Frontend code on top of Crasman Stage CMS.',
+            'cover': "vivago_thumb.png",
+            'cover_2x': "vivago_thumb@2x.png",
+            'url': 'http://www.vivago.fi',
+            'url_label': 'vivago.fi',
+            'images': ['vivago_front.jpg','vivago_pro_front.jpg']
+        },
+        {
             'title': 'Porkkanamafia',
             'tags': ['Design','Community'],
             'story': 'I was one of the folks bringing Carrotmob activism to Finland. We organized dozen events and I made the site for Finnish Carrotmobbers.',
             'cover': "porkkanamafia_thumb.jpg",
             'cover_2x': "porkkanamafia_thumb@2x.jpg",
-            'year': '2008-2010',
+            'year': '2008—2010',
             'images': [
                 'porkkanamafia_www.png',
                 'porkkanamafia_klubi_juliste.jpg',
@@ -283,9 +294,9 @@ mikael.controller('portfolioCtrl', function($scope, $document) {
             'year': '2006-2008',
             'story': 'Graphic design for flash/mobile -games for alypaa.com and for their customers. Älypää is the biggest quiz online community in Finland with over 130 000 different visitors per week. Customers included many of the biggest companies and brands in Finland, such as Alko, Viking Line, Nindendo, SAK, S-ryhmä, Itella and many more.',
             'cover': "alypaa_thumb.jpg",
+            'cover_2x': "alypaa_thumb@2x.jpg",
             'url': 'http://alypaa.com',
             'url_label': 'alypaa.com',
-            'cover_2x': "alypaa_thumb.jpg",
             'images': ['alypaa_www2.png','alypaa_alko.png','alypaa_sak.png']
         },
     ];

@@ -11,6 +11,10 @@
     <link rel="profile" href="http://microformats.org/profile/hcard">
     <!-- @if ENV='prod' --><link href="/assets/css/app.min.css?v=<!-- @echo CACHEBUSTER -->" rel="stylesheet"><!-- @endif -->
     <!-- @if ENV='dev' --><link href="/assets/css/app.css?v=<!-- @echo CACHEBUSTER -->" rel="stylesheet"><!-- @endif -->
+    <!--[if lt IE 9]>
+        <!-- @if ENV='prod' --><script src="/assets/js/ie.min.js?v=<!-- @echo CACHEBUSTER -->"></script><!-- @endif -->
+        <!-- @if ENV='dev' --><script src="/assets/js/ie.js?v=<!-- @echo CACHEBUSTER -->"></script><!-- @endif -->
+    <![endif]-->
     <meta name="fragment" content="!">
     <meta name="format-detection" content="telephone=no">
     <meta name="description" content="<!-- @echo DESCRIPTION -->">

@@ -113,7 +113,9 @@ module.exports = function(grunt) {
       }
     },
     concat: {
-      dist : {
+
+
+      app : {
         src: [
           'src/vendor/jquery/jquery.js',
           'src/vendor/angular/angular.js',
@@ -130,6 +132,12 @@ module.exports = function(grunt) {
           'src/js/directives/*',
         ],
         dest: 'build/assets/js/app.js'
+      },
+      ie : {
+        src: [
+          'src/vendor/html5shiv/dist/html5shiv.js',
+        ],
+        dest: 'build/assets/js/ie.js'
       }
     },
     uglify: {
@@ -137,9 +145,15 @@ module.exports = function(grunt) {
         mangle: false, // Angular doesn't like mangling...
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
-      build: {
-        src: 'build/assets/js/app.js',
-        dest: 'build/assets/js/app.min.js'
+      app: {
+        files: {
+          'build/assets/js/app.min.js': ['build/assets/js/app.js']
+        }
+      },
+      ie: {
+        files: {
+          'build/assets/js/ie.min.js': ['build/assets/js/ie.js']
+        }
       }
     },
     copy: {
