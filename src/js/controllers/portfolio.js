@@ -205,6 +205,16 @@ mikael.controller('portfolioCtrl', function($scope, $document) {
             ]
         },
         {
+            'title': 'Icons and symbols',
+            'tags': ['Design'],
+            'employer': 'Into-Digital, Gemilo',
+            'year': '2008—2010',
+            'story': 'For various projects.',
+            'cover': "icons_thumb.jpg",
+            'cover_2x': "icons_thumb@2x.jpg",
+            'images': ['icons_1.jpg', 'icons_2.jpg']
+        },
+        {
             'title': 'SunSauna',
             'tags': ['Design'],
             'employer': 'Into-Digital',
