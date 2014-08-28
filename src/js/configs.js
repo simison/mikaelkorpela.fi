@@ -21,6 +21,12 @@ mikael.config(function($routeProvider, $locationProvider) {
         templateUrl: 'partials/blog.html',
         controller: 'blogCtrl'
     }).
+    when('/media', {
+        pageClass: 'media',
+        title: 'Media - ',
+        templateUrl: 'partials/media.html',
+        controller: 'mediaCtrl'
+    }).
     when('/portfolio', {
         pageClass: 'portfolio',
         title: 'Portfolio of ',

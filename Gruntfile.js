@@ -6,6 +6,7 @@ module.exports = function(grunt) {
           'build/partials/me.html':             'src/views/partials/me.html',
           'build/partials/cv.html':             'src/views/partials/cv.html',
           'build/partials/blog.html':           'src/views/partials/blog.html',
+          'build/partials/media.html':          'src/views/partials/media.html',
           'build/partials/portfolio.html':      'src/views/partials/portfolio.html',
           'build/partials/portfolio-card.html': 'src/views/partials/portfolio-card.html',
           'build/partials/volunteering.html':   'src/views/partials/volunteering.html',
@@ -47,6 +48,7 @@ module.exports = function(grunt) {
       files: {
         files: [
           'src/img/*',
+          'src/files/*',
           'src/portfolio/*',
           'src/audio/*',
           'src/font/*',
@@ -183,6 +185,13 @@ module.exports = function(grunt) {
             {
                 expand: true,
                 flatten: true,
+                src: ['src/files/*'],
+                dest: 'build/files/',
+                filter: 'isFile'
+            },
+            {
+                expand: true,
+                flatten: true,
                 src: ['src/img/*'],
                 dest: 'build/assets/img/',
                 filter: 'isFile'
@@ -213,6 +222,7 @@ module.exports = function(grunt) {
           'build/index.html':                 'build/index.html',
           'build/partials/me.html':           'build/partials/me.html',
           'build/partials/cv.html':           'build/partials/cv.html',
+          'build/partials/media.html':        'build/partials/media.html',
           'build/partials/blog.html':         'build/partials/blog.html',
           'build/partials/portfolio.html':    'build/partials/portfolio.html',
           'build/partials/volunteering.html': 'build/partials/volunteering.html',
@@ -243,6 +253,7 @@ module.exports = function(grunt) {
           },
           urls: [
             '/',
+            '/media',
             '/blog',
             '/cv',
             '/portfolio',

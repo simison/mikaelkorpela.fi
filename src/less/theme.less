@@ -319,10 +319,7 @@ b, strong { font-weight: bold; }
         padding: 0;
         list-style: none;
         top: 0;
-        margin-left: -11.5%;
-        @media screen and (max-width: 768px) {
-            margin-left: -47%;
-        }
+        margin-left: -17%;
         li {
             display: block;
             padding: 0 10px;
@@ -345,6 +342,12 @@ b, strong { font-weight: bold; }
                 &:active {
                     border-color: @link-color-border;
                 }
+            }
+        }
+        @media screen and (max-width: 768px) {
+            margin-left: -47%;
+            li {
+                padding: 0 5px;
             }
         }
     }
